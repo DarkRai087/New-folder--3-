@@ -7,7 +7,7 @@ const LocationsMap = () => {
         <span className="text-green-600">📍</span>
         <h3 className="text-lg font-semibold text-gray-900">Locations</h3>
       </div>
-      <div className="relative bg-gray-200 rounded-lg overflow-hidden" style={{ height: '400px' }}>
+      <div className="relative bg-gray-200 rounded-lg overflow-hidden" style={{ height: '600px' }}>
         {/* Australia Map SVG */}
         <svg className="w-full h-full" viewBox="0 0 600 500" preserveAspectRatio="xMidYMid meet">
           {/* Western Australia */}

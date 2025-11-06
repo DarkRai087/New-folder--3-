@@ -19,13 +19,14 @@ function App() {
         
         <TopMetrics />
         
+        <div className="mb-6">
+          <LocationsMap />
+        </div>
+        
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+          <ExpensesChart />
           <div className="space-y-6">
-            <LocationsMap />
-            <ExpensesChart />
             <GenderChart />
-          </div>
-          <div>
             <AgeDistribution />
           </div>
         </div>
