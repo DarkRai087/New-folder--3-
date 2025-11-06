@@ -14,9 +14,6 @@ const Header = () => {
           <div className="flex flex-col">
             <div className="flex items-center space-x-2 mb-1">
               <h1 className="text-3xl font-bold text-gray-900">Jack Wilson</h1>
-              <span className="bg-blue-500 text-white text-xs px-2 py-0.5 rounded font-medium">
-                54 Hug › 16 Hug
-              </span>
             </div>
             <div className="flex items-center space-x-2 text-gray-600">
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">

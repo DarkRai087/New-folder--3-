@@ -27,7 +27,7 @@ function App() {
         </div>
       
 
-        <div className="mb-6">
+        <div className="mb-6 mt-6">
           <TrainingChart />
         </div>
 
