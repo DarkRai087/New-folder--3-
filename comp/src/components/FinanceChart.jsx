@@ -2,10 +2,7 @@ import React from 'react';
 
 const FinanceChart = () => {
   const months = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP'];
-  
-  // Income data (dark blue bars) - approximate values from the image
   const incomeData = [12, 17, 10, 16, 17, 16, 14, 16, 20];
-  // Expenses data (light blue bars) - approximate values from the image
   const expensesData = [8, 8, 8, 12, 10, 9, 8, 9, 10];
   
   const maxValue = 20;
@@ -33,32 +30,48 @@ const FinanceChart = () => {
           </div>
         </div>
       </div>
-      
-      {/* Summary Stats */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pb-6 mb-6">
-        <div className="flex items-center gap-4">
+
+      {/* Top border line */}
+      <div className="border-t border-gray-200 mb-6"></div>
+
+      {/* Summary Section */}
+      <div className="flex flex-col md:flex-row justify-between items-center md:items-stretch gap-12 pb-6">
+        {/* Income */}
+        <div className="flex items-center gap-4 flex-1 justify-center">
           <div className="rounded-full border-2 border-gray-200 p-3">
             <svg className="h-6 w-6 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
             </svg>
           </div>
           <div>
-            <p className="text-gray-500 text-sm font-medium">INCOME</p>
-            <p className="text-2xl font-bold text-gray-800">${totalIncome.toLocaleString('en-US', { minimumFractionDigits: 2 })}</p>
+            <p className="text-gray-400 text-sm font-medium">INCOME</p>
+            <p className="text-2xl font-bold text-gray-800">
+              ${totalIncome.toLocaleString('en-US', { minimumFractionDigits: 2 })}
+            </p>
           </div>
         </div>
-        <div className="flex items-center gap-4 md:pl-4 md:border-l border-gray-200">
+
+        {/* Divider */}
+        <div className="hidden md:block w-px bg-gray-200"></div>
+
+        {/* Expenses */}
+        <div className="flex items-center gap-4 flex-1 justify-center">
           <div className="rounded-full border-2 border-gray-200 p-3">
             <svg className="h-6 w-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6" />
             </svg>
           </div>
           <div>
-            <p className="text-gray-500 text-sm font-medium">EXPENSES</p>
-            <p className="text-2xl font-bold text-gray-800">${totalExpenses.toLocaleString('en-US', { minimumFractionDigits: 2 })}</p>
+            <p className="text-gray-400 text-sm font-medium">EXPENSES</p>
+            <p className="text-2xl font-bold text-gray-800">
+              ${totalExpenses.toLocaleString('en-US', { minimumFractionDigits: 2 })}
+            </p>
           </div>
         </div>
       </div>
+
+      {/* Middle border line */}
+      <div className="border-t border-gray-200 mb-6"></div>
 
       {/* Chart */}
       <div className="h-64 relative">
@@ -70,21 +83,20 @@ const FinanceChart = () => {
           <div>5K</div>
           <div>0</div>
         </div>
-        
+
         <div className="h-full flex items-end justify-between gap-3 ml-8">
           {months.map((month, index) => {
             const incomeHeight = (incomeData[index] / maxValue) * 100;
             const expensesHeight = (expensesData[index] / maxValue) * 100;
-            
+
             return (
               <div key={month} className="flex flex-col items-center flex-1 h-full justify-end">
-                {/* Stacked bar */}
                 <div className="w-full mb-2 flex flex-col" style={{ height: '200px', justifyContent: 'flex-end' }}>
-                  <div 
+                  <div
                     className="w-full bg-blue-600 rounded-t-lg transition-all"
                     style={{ height: `${incomeHeight}%` }}
                   ></div>
-                  <div 
+                  <div
                     className="w-full bg-blue-300 transition-all"
                     style={{ height: `${expensesHeight}%` }}
                   ></div>
