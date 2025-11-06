@@ -5,7 +5,20 @@ const LocationsMap = () => {
     <div className="bg-white rounded-lg p-6 shadow-sm">
       <div className="flex items-center space-x-2 mb-4">
         <span className="text-green-600">📍</span>
-        <h3 className="text-lg font-semibold text-gray-900">Locations</h3>
+        <h3 
+          className="font-metropolis font-bold align-middle" 
+          style={{ 
+            fontSize: '20px', 
+            lineHeight: '100%', 
+            letterSpacing: '0%',
+            background: 'linear-gradient(90deg, #25266B 0%, #2A3492 100%)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            backgroundClip: 'text'
+          }}
+        >
+          Locations
+        </h3>
       </div>
       <div className="relative bg-gray-200 rounded-lg overflow-hidden" style={{ height: '600px' }}>
         {/* Australia Map SVG */}

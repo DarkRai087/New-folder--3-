@@ -5,7 +5,14 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        'metropolis': ['Metropolis', 'sans-serif'],
+      },
+      letterSpacing: {
+        'tight-custom': '-0.27px',
+      },
+    },
   },
   plugins: [],
 }

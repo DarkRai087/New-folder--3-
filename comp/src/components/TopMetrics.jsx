@@ -1,36 +1,38 @@
 import React from 'react';
 
-const MetricCard = ({ title, value, change, changeType, icon, color }) => {
+const MetricCard = ({ title, value, change, changeType, icon, color, chartColor }) => {
   const isPositive = changeType === 'positive';
   
   return (
-    <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
-      <div className="flex items-start justify-between mb-4">
-        <div className="p-2 bg-gray-50 rounded-lg">
-          <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+      <div className="flex items-start justify-between mb-6">
+        <button className="p-2.5 bg-gray-50 rounded-full hover:bg-gray-100 transition-colors">
+          <svg className="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
             {icon}
           </svg>
-        </div>
+        </button>
       </div>
-      <div className="space-y-2">
-        <h3 className="text-sm text-gray-600 font-medium">{title}</h3>
-        <div className="flex items-baseline space-x-3">
-          <div className="text-2xl font-bold text-gray-900">{value}</div>
-          <span className={`text-xs font-semibold px-2 py-1 rounded-md ${isPositive ? 'text-green-700 bg-green-50' : 'text-red-700 bg-red-50'}`}>
+      
+      <div className="mb-6">
+        <svg className="w-full h-20" viewBox="0 0 200 80" preserveAspectRatio="none">
+          <path
+            d="M0,40 Q25,25 50,35 T100,40 T150,30 T200,40"
+            fill="none"
+            stroke={chartColor}
+            strokeWidth="3"
+            strokeLinecap="round"
+          />
+        </svg>
+      </div>
+      
+      <div className="space-y-3">
+        <h3 className="text-base text-gray-700 font-medium">{title}</h3>
+        <div className="flex items-center space-x-2">
+          <div className="font-metropolis text-lg font-medium leading-6 tracking-tight-custom align-middle text-gray-900">{value}</div>
+          <span className={`text-xs font-semibold px-2 py-0.5 rounded-md ${isPositive ? 'text-green-600 bg-green-50' : 'text-red-600 bg-red-50'}`}>
             {change}
           </span>
         </div>
-      </div>
-      <div className="mt-4">
-        <svg className="w-full h-16" viewBox="0 0 200 60" preserveAspectRatio="none">
-          <path
-            d="M0,30 Q25,20 50,25 T100,30 T150,25 T200,30"
-            fill="none"
-            stroke={isPositive ? '#10b981' : '#ef4444'}
-            strokeWidth="2.5"
-            opacity="0.6"
-          />
-        </svg>
       </div>
     </div>
   );
@@ -43,21 +45,24 @@ const TopMetrics = () => {
       value: '$6,240.28',
       change: '+2%',
       changeType: 'positive',
-      icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+      chartColor: '#10b981',
+      icon: <path strokeLinecap="round" strokeLinejoin="round" d="M7 17L17 7M17 7H7M17 7V17" />
     },
     {
       title: 'Total Expenses',
       value: '$6,240.28',
       change: '-2%',
       changeType: 'negative',
-      icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6" />
+      chartColor: '#ef4444',
+      icon: <path strokeLinecap="round" strokeLinejoin="round" d="M17 7L7 17M7 17H17M7 17V7" />
     },
     {
       title: 'Profit / Loss',
       value: '$6,240.28',
       change: '-2%',
       changeType: 'negative',
-      icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6" />
+      chartColor: '#f59e0b',
+      icon: <path strokeLinecap="round" strokeLinejoin="round" d="M17 7L7 17M7 17H17M7 17V7" />
     }
   ];
 
