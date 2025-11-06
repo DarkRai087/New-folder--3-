@@ -11,7 +11,7 @@ import FinanceChart from './components/FinanceChart';
 import CombinedCharts from './components/CombinedCharts';
 import './App.css';
 
-function App() {
+function  Dashboard() {
   return (
     <div className="min-h-screen bg-gray-50">
       <main className="max-w-7xl mx-auto px-6 py-6">
@@ -37,4 +37,4 @@ function App() {
   );
 }
 
-export default App;
+export default  Dashboard;
