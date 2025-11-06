@@ -4,25 +4,24 @@ const MetricCard = ({ title, value, change, changeType, icon, color, chartColor 
   const isPositive = changeType === 'positive';
   
   return (
-    <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
-      <div className="flex items-start justify-between mb-6">
-        <button className="p-2.5 bg-gray-50 rounded-full hover:bg-gray-100 transition-colors">
-          <svg className="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+    <div className="bg-white rounded-lg shadow-md p-4 flex flex-col justify-between">
+      <div className="flex justify-between items-start mb-2">
+        <button className="bg-gray-100 rounded-full p-2 hover:bg-gray-200 transition-colors">
+          <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
             {icon}
           </svg>
         </button>
-      </div>
-      
-      <div className="mb-6">
-        <svg className="w-full h-20" viewBox="0 0 200 80" preserveAspectRatio="none">
-          <path
-            d="M0,40 Q25,25 50,35 T100,40 T150,30 T200,40"
-            fill="none"
-            stroke={chartColor}
-            strokeWidth="3"
-            strokeLinecap="round"
-          />
-        </svg>
+        <div className="w-2/3 h-12">
+          <svg className="w-full h-full" viewBox="0 0 200 80" preserveAspectRatio="none">
+            <path
+              d="M0,40 Q25,25 50,35 T100,40 T150,30 T200,40"
+              fill="none"
+              stroke={chartColor}
+              strokeWidth="3"
+              strokeLinecap="round"
+            />
+          </svg>
+        </div>
       </div>
       
       <div className="space-y-3">

@@ -8,6 +8,7 @@ import GenderChart from './components/GenderChart';
 import AgeDistribution from './components/AgeDistribution';
 import TrainingChart from './components/TrainingChart';
 import FinanceChart from './components/FinanceChart';
+import CombinedCharts from './components/CombinedCharts';
 import './App.css';
 
 function App() {
@@ -22,14 +23,9 @@ function App() {
         <div className="mb-6">
           <LocationsMap />
         </div>
-        
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
-          <ExpensesChart />
-          <div className="space-y-6">
-            <GenderChart />
-            <AgeDistribution />
-          </div>
+        <div> <CombinedCharts />
         </div>
+      
 
         <div className="mb-6">
           <TrainingChart />

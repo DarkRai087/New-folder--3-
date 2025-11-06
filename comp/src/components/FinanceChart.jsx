@@ -3,79 +3,93 @@ import React from 'react';
 const FinanceChart = () => {
   const months = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP'];
   
-  const incomeData = [12, 17, 10, 15, 16, 14, 13, 15, 19];
-  const expensesData = [8, 13, 8, 12, 14, 11, 10, 13, 15];
+  // Income data (dark blue bars) - approximate values from the image
+  const incomeData = [12, 17, 10, 16, 17, 16, 14, 16, 20];
+  // Expenses data (light blue bars) - approximate values from the image
+  const expensesData = [8, 8, 8, 12, 10, 9, 8, 9, 10];
   
   const maxValue = 20;
+  const totalIncome = 86000;
+  const totalExpenses = 24000;
 
   return (
-    <div className="bg-white rounded-lg p-6 shadow-sm">
-      <div className="flex items-center justify-between mb-6">
-        <div className="flex items-center space-x-2">
-          <span className="text-blue-600">💵</span>
-          <h3 className="text-lg font-semibold text-gray-900">Finance</h3>
+    <div className="bg-white rounded-lg shadow-md p-6">
+      {/* Header */}
+      <div className="flex justify-between items-center mb-6">
+        <div className="flex items-center gap-2">
+          <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          <h2 className="text-lg font-bold text-gray-800">Finance</h2>
         </div>
-        <div className="flex items-center space-x-4 text-xs">
-          <div className="flex items-center space-x-2">
-            <div className="w-3 h-3 bg-blue-600 rounded"></div>
+        <div className="flex items-center gap-4 text-sm">
+          <div className="flex items-center gap-2">
+            <span className="h-3 w-3 bg-blue-600 rounded-sm"></span>
             <span className="text-gray-600">Income</span>
           </div>
-          <div className="flex items-center space-x-2">
-            <div className="w-3 h-3 bg-blue-300 rounded"></div>
+          <div className="flex items-center gap-2">
+            <span className="h-3 w-3 bg-blue-300 rounded-sm"></span>
             <span className="text-gray-600">Expenses</span>
           </div>
         </div>
       </div>
-
-      <div className="grid grid-cols-2 gap-8 mb-6">
-        <div>
-          <div className="flex items-center space-x-2 mb-1">
-            <span className="text-blue-600">📈</span>
-            <span className="text-xs text-gray-500">INCOME</span>
+      
+      {/* Summary Stats */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pb-6 mb-6">
+        <div className="flex items-center gap-4">
+          <div className="rounded-full border-2 border-gray-200 p-3">
+            <svg className="h-6 w-6 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+            </svg>
           </div>
-          <div className="text-2xl font-bold text-gray-900">$86,000.00</div>
+          <div>
+            <p className="text-gray-500 text-sm font-medium">INCOME</p>
+            <p className="text-2xl font-bold text-gray-800">${totalIncome.toLocaleString('en-US', { minimumFractionDigits: 2 })}</p>
+          </div>
         </div>
-        <div>
-          <div className="flex items-center space-x-2 mb-1">
-            <span className="text-red-500">📉</span>
-            <span className="text-xs text-gray-500">EXPENSES</span>
+        <div className="flex items-center gap-4 md:pl-4 md:border-l border-gray-200">
+          <div className="rounded-full border-2 border-gray-200 p-3">
+            <svg className="h-6 w-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6" />
+            </svg>
           </div>
-          <div className="text-2xl font-bold text-gray-900">$24,000.00</div>
+          <div>
+            <p className="text-gray-500 text-sm font-medium">EXPENSES</p>
+            <p className="text-2xl font-bold text-gray-800">${totalExpenses.toLocaleString('en-US', { minimumFractionDigits: 2 })}</p>
+          </div>
         </div>
       </div>
 
-      <div className="relative h-64">
+      {/* Chart */}
+      <div className="h-64 relative">
         {/* Y-axis labels */}
-        <div className="absolute left-0 top-0 bottom-8 flex flex-col justify-between text-xs text-gray-500">
-          <span>20K</span>
-          <span>15K</span>
-          <span>10K</span>
-          <span>0</span>
+        <div className="absolute left-0 top-0 h-full flex flex-col justify-between text-xs text-gray-500 font-medium pr-2">
+          <div>20K</div>
+          <div>15K</div>
+          <div>10K</div>
+          <div>5K</div>
+          <div>0</div>
         </div>
-
-        {/* Chart area */}
-        <div className="ml-8 h-full flex items-end justify-between space-x-1">
+        
+        <div className="h-full flex items-end justify-between gap-3 ml-8">
           {months.map((month, index) => {
             const incomeHeight = (incomeData[index] / maxValue) * 100;
             const expensesHeight = (expensesData[index] / maxValue) * 100;
             
             return (
               <div key={month} className="flex flex-col items-center flex-1 h-full justify-end">
-                <div className="w-full flex space-x-0.5 mb-2">
-                  <div className="flex-1 flex flex-col justify-end" style={{ height: '200px' }}>
-                    <div 
-                      className="w-full bg-blue-600 rounded-t"
-                      style={{ height: `${incomeHeight}%` }}
-                    ></div>
-                  </div>
-                  <div className="flex-1 flex flex-col justify-end" style={{ height: '200px' }}>
-                    <div 
-                      className="w-full bg-blue-300 rounded-t"
-                      style={{ height: `${expensesHeight}%` }}
-                    ></div>
-                  </div>
+                {/* Stacked bar */}
+                <div className="w-full mb-2 flex flex-col" style={{ height: '200px', justifyContent: 'flex-end' }}>
+                  <div 
+                    className="w-full bg-blue-600 rounded-t-lg transition-all"
+                    style={{ height: `${incomeHeight}%` }}
+                  ></div>
+                  <div 
+                    className="w-full bg-blue-300 transition-all"
+                    style={{ height: `${expensesHeight}%` }}
+                  ></div>
                 </div>
-                <div className="text-xs text-gray-600">{month}</div>
+                <div className="text-xs text-gray-600 font-medium">{month}</div>
               </div>
             );
           })}
