@@ -9,6 +9,7 @@ import AgeDistribution from './components/AgeDistribution';
 import TrainingChart from './components/TrainingChart';
 import FinanceChart from './components/FinanceChart';
 import CombinedCharts from './components/CombinedCharts';
+import Budget from './components/Budget';
 import './App.css';
 
 function  Dashboard() {
@@ -32,6 +33,10 @@ function  Dashboard() {
         </div>
 
         <FinanceChart />
+
+        <div className="mt-6">
+          <Budget />
+        </div>
       </main>
     </div>
   );
