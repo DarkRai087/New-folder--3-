@@ -3,6 +3,8 @@ import Header from './components/Header';
 import DateFilter from './components/DateFilter';
 import TopMetrics from './components/TopMetrics';
 import LocationsMap from './components/LocationsMap';
+import Services from './components/Services';
+import Compliances from './components/Compliances';
 import ExpensesChart from './components/ExpensesChart';
 import GenderChart from './components/GenderChart';
 import AgeDistribution from './components/AgeDistribution';
@@ -21,10 +23,17 @@ function  Dashboard() {
         
         <TopMetrics />
         
-        <div className="mb-6">
-          <LocationsMap />
+        <div className="mb-6 grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <div className="lg:col-span-2">
+            <LocationsMap />
+          </div>
+          <div className="lg:col-span-1 space-y-6">
+            <Services />
+            <Compliances />
+          </div>
         </div>
-        <div> <CombinedCharts />
+        <div>
+          <CombinedCharts />
         </div>
       
 
