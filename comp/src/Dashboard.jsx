@@ -12,6 +12,9 @@ import TrainingChart from './components/TrainingChart';
 import FinanceChart from './components/FinanceChart';
 import CombinedCharts from './components/CombinedCharts';
 import Budget from './components/Budget';
+import Schedule from './components/Schedule';
+import Goals from './components/Goals';
+import Forms from './components/Forms';
 import './App.css';
 
 function  Dashboard() {
@@ -45,6 +48,15 @@ function  Dashboard() {
 
         <div className="mt-6">
           <Budget />
+        </div>
+        <div className='mt-6'>
+          <Schedule/>
+        </div>
+
+        {/* New: Goals and Forms at the end */}
+        <div className="mt-6 grid grid-cols-1 gap-6">
+          <Goals />
+          <Forms />
         </div>
       </main>
     </div>
